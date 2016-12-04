@@ -11,7 +11,7 @@ Sets are typically represented with Venn diagrams. The first option I came acros
 
 All possible intersections can be represented with elliptical Venn diagrams. I produced this plot with the <a href="https://cran.r-project.org/web/packages/VennDiagram/">VennDiagram</a> package in <a href="https://cran.r-project.org/">R</a>. But the ellipses are not proportional.
 
-<img src="https://hmvantol.github.io/venn-followers/venn_followers_R.svg" height=:"20">
+<img src="https://hmvantol.github.io/venn-followers/venn_followers_R.svg" height=:"5">
 
 Ultimately, I like <a href="http://circos.ca/">this</a> chord diagram the best. This visualization was translated into D3 by <a href="http://bl.ocks.org/mbostock/4062006">Mike Bostock</a>. While it doesn’t show all possible set intersections, it is easy to read and you can get a sense of the overlap between each leader’s followers. People do, however, get counted multiple times in this diagram if they are following more than two party leaders.
 
