@@ -3,7 +3,7 @@
 
 I followed much of the <a href="https://en.wikipedia.org/wiki/Canadian_federal_election,_2015">Canadian election</a> over <a href="https://twitter.com/">Twitter</a> because I live in Seattle. This got me wondering whether there is a large overlap in Twitter followers between the party leaders or if people just follow a single party.
 
-The day after the election I used Tweepy to collect a list of follower IDs from <p style="color:red">@JustinTrudeau</p>, <p style="color:blue">@pmharper</p>, <p style="color:orange">@ThomasMulcair</p>, <p style="color:green">@ElizabethMay</p>, and <p style="color:light blue">@GillesDuceppe</p>.
+The day after the election I used Tweepy to collect a list of follower IDs from @JustinTrudeau, @pmharper, @ThomasMulcair, @ElizabethMay, and @GillesDuceppe.
 
 Sets are typically represented with Venn diagrams. The first option I came across was Ben Frederickson’s <a href="https://github.com/benfred/venn.js">code</a> for producing proportional Venn diagrams with D3. The result is really great! Unfortunately, it’s not really possible to represent five proportional overlapping sets with circles. You can see that overlaps between Duceppe, Mulcair, and May were excluded from this representation.
 
@@ -19,11 +19,7 @@ Mulcair has a lot less followers than I expected considering he was the leader o
 
 
 <b>Source material:</b>
-
-<a href="http://www.tweepy.org/">Tweepy</a>
-
-<a href="http://www.benfrederickson.com/venn-diagrams-with-d3.js/">Venn Diagrams with D3.js</a> by Ben Frederickson
-
-<a href="https://cran.r-project.org/web/packages/VennDiagram/VennDiagram.pdf">draw.quintuple.venn {VennDiagram}</a>
-
-<a href="http://bl.ocks.org/mbostock/4062006">Chord Diagram</a> by Mike Bostock
+<br><a href="http://www.tweepy.org/">Tweepy</a>
+<br><a href="http://www.benfrederickson.com/venn-diagrams-with-d3.js/">Venn Diagrams with D3.js</a> by Ben Frederickson
+<br><a href="https://cran.r-project.org/web/packages/VennDiagram/VennDiagram.pdf">draw.quintuple.venn {VennDiagram}</a>
+<br><a href="http://bl.ocks.org/mbostock/4062006">Chord Diagram</a> by Mike Bostock
