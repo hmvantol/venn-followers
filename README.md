@@ -11,13 +11,15 @@ Sets are typically represented with Venn diagrams. The first option I came acros
 
 All possible intersections can be represented with elliptical Venn diagrams. I produced this plot with the <a href="https://cran.r-project.org/web/packages/VennDiagram/">VennDiagram</a> package in <a href="https://cran.r-project.org/">R</a>. But the ellipses are not proportional.
 
+<img src="https://github.com/hmvantol/venn-followers/blob/master/venn_followers_R.svg">
+
 Ultimately, I like <a href="http://circos.ca/">this</a> chord diagram the best. This visualization was translated into D3 by <a href="http://bl.ocks.org/mbostock/4062006">Mike Bostock</a>. While it doesn’t show all possible set intersections, it is easy to read and you can get a sense of the overlap between each leader’s followers. People do, however, get counted multiple times in this diagram if they are following more than two party leaders.
 
 <i>Click this image to open graphic</i>
 
 Mulcair has a lot less followers than I expected considering he was the leader of the opposition for four years. Harper and Trudeau’s followers have remarkably similar affiliations with a large chunk that follow only Harper and/or Trudeau.
 
-
+<br>
 <b>Source material:</b>
 <br><a href="http://www.tweepy.org/">Tweepy</a>
 <br><a href="http://www.benfrederickson.com/venn-diagrams-with-d3.js/">Venn Diagrams with D3.js</a> by Ben Frederickson
