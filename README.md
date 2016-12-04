@@ -7,7 +7,7 @@ The day after the election I used Tweepy to collect a list of follower IDs from 
 
 Sets are typically represented with Venn diagrams. The first option I came across was Ben Frederickson’s <a href="https://github.com/benfred/venn.js">code</a> for producing proportional Venn diagrams with D3. The result is really great! Unfortunately, it’s not really possible to represent five proportional overlapping sets with circles. You can see that overlaps between Duceppe, Mulcair, and May were excluded from this representation.
 
-<a href="https://hmvantol.github.io/venn-followers/venn_followers.html"><img src="https://github.com/hmvantol/venn-followers/blob/master/screenshot1.png"></a>
+<a href="https://hmvantol.github.io/venn-followers/venn_followers.html"><img src="https://github.com/hmvantol/venn-followers/blob/master/screenshot1.png" height=500></a>
 
 <i>Click this image to see interactive tooltip</i>
 
@@ -17,7 +17,7 @@ All possible intersections can be represented with elliptical Venn diagrams. I p
 
 Ultimately, I like <a href="http://circos.ca/">this</a> chord diagram the best. This visualization was translated into D3 by <a href="http://bl.ocks.org/mbostock/4062006">Mike Bostock</a>. While it doesn’t show all possible set intersections, it is easy to read and you can get a sense of the overlap between each leader’s followers. People do, however, get counted multiple times in this diagram if they are following more than two party leaders.
 
-<a href="https://hmvantol.github.io/venn-followers/chord_followers.html"><img src="https://github.com/hmvantol/venn-followers/blob/master/screenshot2.png"></a>
+<a href="https://hmvantol.github.io/venn-followers/chord_followers.html"><img src="https://github.com/hmvantol/venn-followers/blob/master/screenshot2.png" height=500></a>
 
 
 <i>Click this image to open graphic</i>
