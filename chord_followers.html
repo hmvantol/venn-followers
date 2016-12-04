@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Twitter followers overlap</title>
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.chord path {
+  fill-opacity: .67;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+#curve-text {
+  font: 20px sans-serif;
+}
+
+#curve-line {
+  stroke: #999;
+  fill: none;
+}
+
+</style>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script>
+
+
+var matrix = [
+	[354831, 430286, 145154, 134206, 44700],
+	[430286, 458729, 114646, 111059, 35998],
+	[145154, 114646, 24939, 94010, 17895],
+	[134206, 111059, 94010, 42911, 15280],
+	[44700, 35998, 17895, 15280, 41139]
+];
+
+var chord = d3.layout.chord()
+    .padding(.05)
+    .sortSubgroups(d3.descending)
+    .matrix(matrix);
+
+var width = 960,
+    height = 600,
+    innerRadius = Math.min(width, height) * .34,
+    outerRadius = innerRadius * 1.1;
+
+var fill = d3.scale.ordinal()
+    .domain(d3.range(5))
+    .range(["#de2d26", "#253494", "#e6550d", "#31a354", "#00BFFF"]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+svg.append("g").selectAll("path")
+    .data(chord.groups)
+  .enter().append("path")
+    .style("fill", function(d) { return fill(d.index); })
+    .style("stroke", function(d) { return fill(d.index); })
+    .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+    .on("mouseover", fade(.1))
+    .on("mouseout", fade(1));
+
+var ticks = svg.append("g").selectAll("g")
+    .data(chord.groups)
+  .enter().append("g").selectAll("g")
+    .data(groupTicks)
+  .enter().append("g")
+    .attr("transform", function(d) {
+      return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+          + "translate(" + outerRadius + ",0)";
+    });
+
+ticks.append("line")
+    .attr("x1", 1)
+    .attr("y1", 0)
+    .attr("x2", 5)
+    .attr("y2", 0)
+    .style("stroke", "#000");
+
+ticks.append("text")
+    .attr("x", 8)
+    .attr("dy", ".35em")
+    .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
+    .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+    .text(function(d) { return d.label; });
+
+svg.append("g")
+    .attr("class", "chord")
+  .selectAll("path")
+    .data(chord.chords)
+  .enter().append("path")
+    .attr("d", d3.svg.chord().radius(innerRadius))
+    .style("fill", function(d) { return fill(d.target.index); })
+    .style("opacity", 1);
+
+
+
+
+
+
+svg.append("defs").append("path")
+    .attr("id", "curve1")
+    .attr("d", "M1.648864450371997e-14,-269.2800000000001A269.2800000000001,269.2800000000001 0 0,1 234.41379503787525,132.52128544479586L177.58620836202667,100.39491321575443A204.00000000000003,204.00000000000003 0 0,0 1.2491397351303004e-14,-204.00000000000003Z");
+svg.append("text")
+    .attr("id", "curve-text")
+  .append("textPath")
+    .attr("xlink:href", "#curve1")
+    .attr("startOffset","20%")
+    .text("Justin Trudeau")
+    .style("fill", "#de2d26");
+svg.append("defs").append("path")
+    .attr("id", "curve2")
+    .attr("d", "M227.49753507703684,144.07147508744555A269.2800000000001,269.2800000000001 0 0,1 -246.57189421458958,108.23132348552933L-186.7968895565072,81.99342688297675A204.00000000000003,204.00000000000003 0 0,0 172.34661748260365,109.14505688442844Z");
+svg.append("text")
+    .attr("id", "curve-text")
+  .append("textPath")
+    .attr("xlink:href", "#curve2")
+    .attr("startOffset","20%")
+    .text("Stephen Harper")
+    .style("fill", "#253494");
+svg.append("defs").append("path")
+    .attr("id", "curve3")
+    .attr("d", "M-251.6730551897742,95.77260407572153A269.2800000000001,269.2800000000001 0 0,1 -249.86076047657693,-100.40577062134774L-189.28845490649763,-76.06497774344524A204.00000000000003,204.00000000000003 0 0,0 -190.6614054467986,72.55500308766781Z");
+svg.append("text")
+    .attr("id", "curve-text")
+  .append("textPath")
+    .attr("xlink:href", "#curve3")
+    .attr("startOffset","5%")
+    .text("Thomas Mulcair")
+    .style("fill", "#e6550d");
+svg.append("defs").append("path")
+    .attr("id", "curve4")
+    .attr("d", "M-244.53030258282826,-112.76812279518754A269.2800000000001,269.2800000000001 0 0,1 -102.73414052936462,-248.91246407059012L-77.82889434042772,-188.5700485383258A204.00000000000003,204.00000000000003 0 0,0 -185.2502292294153,-85.43039605696023Z");
+svg.append("text")
+    .attr("id", "curve-text")
+  .append("textPath")
+    .attr("xlink:href", "#curve4")
+    .attr("startOffset","5%")
+    .text("Elizabeth May")
+    .style("fill", "#31a354");
+svg.append("defs").append("path")
+    .attr("id", "curve5")
+    .attr("d", "M-90.16531142979035,-253.7359553054493A269.2800000000001,269.2800000000001 0 0,1 -13.458390701209462,-268.94347011915653L-10.195750531219288,-203.74505312057312A204.00000000000003,204.00000000000003 0 0,0 -68.30705411347753,-192.22420856473428Z");
+svg.append("text")
+    .attr("id", "curve-text")
+  .append("textPath")
+    .attr("xlink:href", "#curve5")
+    .text("Gilles Duceppe")
+    .style("font-size","12px")
+    .style("fill", "#00BFFF");
+
+
+// Returns an array of tick angles and labels, given a group.
+function groupTicks(d) {
+  var k = (d.endAngle - d.startAngle) / d.value;
+  return d3.range(0, d.value, 20000).map(function(v, i) {
+    return {
+      angle: v * k + d.startAngle,
+      label: i % 5 ? null : v / 1000 + "k"
+    };
+  });
+}
+
+
+// Returns an event handler for fading a given chord group.
+function fade(opacity) {
+  return function(g, i) {
+    svg.selectAll(".chord path")
+        .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .transition()
+        .style("opacity", opacity);
+  };
+}
+
+
+
+</script>
+</html>
